@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   font-family: arial;
+  font-weight: 600;
 }
 
 li{
@@ -11,11 +12,90 @@ li{
   color: white;
 }
 
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
 /* HEADER */
 .header-container{
-  background-color: orange;
+  background-color: #FF8400;
   padding: 20px;
   display: flex;
   justify-content: space-between;
 }
 
+/* MAIN */
+
+body{
+  background-color: rgb(20,20,20);
+}
+
+input{
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: start;
+  height: 50px;
+  border-radius: 6px;
+  border-style: none;
+}
+
+button{
+  display: block;
+  padding: 8px 16px;
+  width: 40%;
+  height: 50px;
+  border-radius: 6px;
+  border-style: none;
+  background-color: #FF8400;
+  color: #fff;
+  font-size: 16px;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: hsl(31, 100%, 39%);
+}
+
+.container-main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #333333;
+  margin: 50px 35%;
+  padding: 30px;
+  border-radius: 6px;
+}
+
+.container-forms{
+  width: 100%;
+}
+
+.input-forms{
+  width: 100%;
+  max-width: 100%;
+}
+
+#forms-buttom{
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-forms input::placeholder{
+  position: relative;
+  padding-left: 10px;
+  font-size: 14px;
+  color: #c9c9c9;
+}
+
+.input-forms input:disabled{
+  background-color: #ddd;
+}
+
+.erro-input{
+  border-style: solid;
+  border-width: 3px;
+  border-color: #ff5b5b;
+  
+}

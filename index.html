@@ -12,21 +12,50 @@
   <header>
     <div class="header-container">
       <li>DSviaCEP</li>
-      <li>Contato</li>
+      <li><a href="/">Contato</a></li>
     </div>
   </header>
 
+  <!-- FORM E RESULTADO -->
   <main>
-    <div class="container-forms">
-      <form action="">
-        <input type="text" name="cep" id="">
-        <input type="text" name="logradouro">
-        <input type="text" name="numero">
-        <input type="text" name="cidade">
-      </form>
-    </div>
+    <section id="form-section">
+      <div class="container-main">
+        <div class="container-forms">
+          <form name="novo-endereço">
+            <div class="input-forms">
+              <label for="cep"></label>
+              <input type="text" name="cep" placeholder="CEP" id="cep">
+            </div>
+            <div class="input-forms">
+              <label for="logradouro"></label>
+              <input type="text" name="logradouro" placeholder="LOGRADOURO" id="logradouro" disabled>
+            </div>
+            <div class="input-forms">
+              <label for="numero"></label>
+              <input type="text" name="numero" placeholder="NÚMERO" id="numero" class="">
+            </div>
+            <div class="input-forms">
+              <label for="cidade"></label>
+              <input type="text" name="cidade" placeholder="CIDADE" id="cidade" disabled>
+            </div>
+            <div id="forms-buttom">
+              <button type="submit">Salvar</button>
+              <button>Limpar</button>
+            </div>
+        </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="form-result-section">
+      <div class="container-resultado">
+
+      </div>
+    </section>
   </main>
 
+
+  <!-- JAVASCRIPT -->
   <script type="module" src="./js/script.js"></script>
 </body>
 
