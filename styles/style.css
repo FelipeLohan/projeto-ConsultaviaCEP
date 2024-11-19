@@ -5,6 +5,10 @@
   font-weight: 600;
 }
 
+body{
+  height: 100%;
+}
+
 li{
   text-decoration: none;
   list-style-type: none;
@@ -98,4 +102,38 @@ button:hover{
   border-width: 3px;
   border-color: #ff5b5b;
   
+}
+
+/* CONTAINER RESULTADO */
+
+.container-resultado{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: #333333;
+  max-width: 100%;
+  margin: 0 40%;
+  padding: 20px;
+  gap: 5px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  
+}
+
+.container-resultado h2{
+  display: inline-block;
+  font-size: 20px;
+  color: #FF8400;
+
+}
+
+.container-resultado h3{
+  display: inline-block;
+  font-size: 16px;
+  color: white;
+}
+
+.container-resultado p{
+  color: #c2c2c2;
+  font-size: 12px;
 }
