@@ -40,7 +40,7 @@ function handleInputNumeroChange(event) {
 }
 
 async function handleInputCepChange(event) {
-  if (validarCEP(event.target.value)) {
+  try{
     event.target.classList.remove("erro-input");
     
     const address = await addressService.findByCep(event.target.value)
@@ -49,10 +49,11 @@ async function handleInputCepChange(event) {
     state.inputLogradouro.value = address.logradouro
     state.address = address
     state.inputNumero.focus()
-  } else {
+  }
+  catch (e){
     event.target.classList.add("erro-input");
     inputClean()
-  }
+  } 
 }
 
 function handleBtnClearClick(event) {
@@ -63,31 +64,22 @@ function handleBtnClearClick(event) {
 }
 
 async function handleBtnSaveClick(event) {
-  event.preventDefault();
-
-  const address = await addressService.findByCep(state.inputCep.value)
-  address.numero = state.inputNumero.value
-  state.address = address
-
-  console.log(state.address.cep)
-
-  console.log(state.address)
+  try{
+    event.preventDefault();
+    const address = await addressService.findByCep(state.inputCep.value)
+    address.numero = state.inputNumero.value
+    state.address = address
+  
+    console.log(state.address.cep)
+  
+    console.log(state.address)
+  }
+  catch (e){
+    alert('CEP Inválido')
+  }
 }
 
 //FUNCTIONS
-
-function validarCEP(cep) {
-  // Remover espaços em branco e hífens do CEP
-  cep = cep.replace(/\s+|-/g, "");
-
-  // Verificar se o CEP possui 8 caracteres
-  if (cep.length !== 8) {
-    return false;
-  }
-
-  // Verificar se o CEP é composto apenas por números
-  return cep.split("").every((char) => !isNaN(char));
-}
 
 function inputClean(){
   state.inputLogradouro.value = ''
