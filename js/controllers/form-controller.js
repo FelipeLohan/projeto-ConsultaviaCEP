@@ -1,7 +1,6 @@
 import Address from "../models/address.js";
 import * as addressService from "../services/address-service.js";
-
-
+import * as listController from "./list-controller.js";
 
 function State() {
   this.address = new Address();
@@ -24,6 +23,7 @@ export function init() {
   state.btnClear = document.forms.novoEndereço.btnClear;
 
   state.inputNumero.addEventListener("change", handleInputNumeroChange);
+  state.inputNumero.addEventListener("keyup", handleInputNumeroKeyUp);
   state.inputCep.addEventListener("change", handleInputCepChange);
   state.btnClear.addEventListener("click", handleBtnClearClick);
   state.btnSave.addEventListener("click", handleBtnSaveClick);
@@ -36,53 +36,61 @@ function handleInputNumeroChange(event) {
     event.target.classList.add("erro-input");
   } else {
     event.target.classList.remove("erro-input");
+    state.address.numero = event.target.value;
   }
 }
 
-async function handleInputCepChange(event) {
-  try{
-    event.target.classList.remove("erro-input");
-    
-    const address = await addressService.findByCep(event.target.value)
+function handleInputNumeroKeyUp(event) {
+  state.address.numero = event.target.value;
+}
 
-    state.inputCidade.value = address.cidade
-    state.inputLogradouro.value = address.logradouro
-    state.address = address
-    state.inputNumero.focus()
-  }
-  catch (e){
+async function handleInputCepChange(event) {
+  try {
+    event.target.classList.remove("erro-input");
+
+    const address = await addressService.findByCep(event.target.value);
+
+    state.inputCidade.value = address.cidade;
+    state.inputLogradouro.value = address.logradouro;
+    state.address = address;
+    state.inputNumero.focus();
+  } catch (e) {
     event.target.classList.add("erro-input");
-    inputClean()
-  } 
+    addressClean();
+    inputClean();
+  }
 }
 
 function handleBtnClearClick(event) {
   event.preventDefault();
   state.inputCep.value = "";
   state.inputNumero.value = "";
-  state.inputCep.focus()
+  state.inputCep.focus();
 }
 
 async function handleBtnSaveClick(event) {
-  try{
-    event.preventDefault();
-    const address = await addressService.findByCep(state.inputCep.value)
-    address.numero = state.inputNumero.value
-    state.address = address
-  
-    console.log(state.address.cep)
-  
-    console.log(state.address)
+  event.preventDefault();
+  console.log(state.address);
+  if (state.address.cep != null || state.address.cep != undefined) {
+    state.address.numero = state.inputNumero.value
+    listController.addCard(state.address);
+  } else {
+    alert('CEP INVÁLIDO')
   }
-  catch (e){
-    alert('CEP Inválido')
-  }
+
+  inputClean()
 }
 
 //FUNCTIONS
 
-function inputClean(){
-  state.inputLogradouro.value = ''
-  state.inputCidade.value = ''
+function inputClean() {
+  state.inputLogradouro.value = "";
+  state.inputCidade.value = "";
 }
 
+function addressClean() {
+  state.address.cep = null;
+  state.address.cidade = null;
+  state.address.logradouro = null;
+  state.address.logradouro = null;
+}
