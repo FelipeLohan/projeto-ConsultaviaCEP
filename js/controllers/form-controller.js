@@ -70,15 +70,22 @@ function handleBtnClearClick(event) {
 
 async function handleBtnSaveClick(event) {
   event.preventDefault();
-  console.log(state.address);
-  if (state.address.cep != null || state.address.cep != undefined) {
+
+  const errors = addressService.getErrors(state.address);
+  const keys = Object.keys(errors)
+  console.log(keys)
+  console.log(errors)
+  
+  if(keys.length > 0){
+    alert('ALGUM CAMPO INVÁLIDO')
+  } else {
     state.address.numero = state.inputNumero.value
     listController.addCard(state.address);
-  } else {
-    alert('CEP INVÁLIDO')
+    inputClean()
   }
-
-  inputClean()
+  console.log(state.address);
+  
+  // inputClean()
 }
 
 //FUNCTIONS
