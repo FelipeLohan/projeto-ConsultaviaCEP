@@ -70,7 +70,7 @@ function handleBtnClearClick(event) {
 
 async function handleBtnSaveClick(event) {
   event.preventDefault();
-
+  state.address.numero = state.inputNumero.value
   const errors = addressService.getErrors(state.address);
   const keys = Object.keys(errors)
   console.log(keys)
@@ -79,7 +79,6 @@ async function handleBtnSaveClick(event) {
   if(keys.length > 0){
     alert('ALGUM CAMPO INVÁLIDO')
   } else {
-    state.address.numero = state.inputNumero.value
     listController.addCard(state.address);
     inputClean()
   }
