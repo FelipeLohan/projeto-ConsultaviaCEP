@@ -14,6 +14,21 @@ Aplicação web onde o usuário consegue fazer uma consulta usando um número de
 
 - `./js/services/exceptions`: responsável pelo controle de excessões.
 
+## DESIGN PATTERN:
+
+Usei um Design Pattern chamado "State Managment" ou em português, "Gerenciamento de Estado" e "Module Pattern", usando o metódo `State()` para armazenar o estado das variáveis, e o `init()` para inicializar elas, encapsulando o código, deixando ele mais legivel, e colocando a responsabilidade de cada um, em uma função ou modulo diferente.
+
+### Vantagens:
+
+- Encapsulamento
+- Fácil testibilidade
+- Centralização do estado
+- Reutilização do código
+- Separação de responsabilidades
+- Organização e leitura do código
+- Independência de Frameworks
+- Código feito para escalar
+
 ## API's USADAS:
 
 - [viaCep](https://viacep.com.br/)
