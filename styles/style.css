@@ -151,3 +151,44 @@ button:hover{
   color: #c2c2c2;
   font-size: 12px;
 }
+
+@media (max-width: 1000px){
+  .container-main{
+    margin: 50px 15%;
+  }
+}
+
+@media (max-width: 750px){
+  .container-main button{
+    font-size: 2.5vmin;
+  }
+
+  #forms-buttom{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  #forms-buttom button{
+    padding: 16px 25px;
+    box-sizing: border-box;
+    width: 60%;
+    font-size: 2.5vmin;
+  }
+
+  .container-resultado{
+    margin: 0 25%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 510px){
+  #forms-buttom button{
+    font-size: 3vmin;
+  }
+
+  .header-container a, li{
+    font-size: 5.5vmin;
+  }
+}
