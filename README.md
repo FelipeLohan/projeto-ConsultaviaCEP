@@ -32,3 +32,7 @@ Usei um Design Pattern chamado "State Managment" ou em português, "Gerenciament
 ## API's USADAS:
 
 - [viaCep](https://viacep.com.br/)
+
+## Deploy:
+
+- [Consulta CEP](https://felipelohan.github.io/projeto-DSviaCEP/)
