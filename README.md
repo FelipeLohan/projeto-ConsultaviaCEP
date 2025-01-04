@@ -35,4 +35,4 @@ Usei um Design Pattern chamado "State Managment" ou em português, "Gerenciament
 
 ## Deploy:
 
-- [Consulta CEP](https://felipelohan.github.io/projeto-DSviaCEP/)
+- [Consulta CEP](https://felipelohan.github.io/projeto-ConsultaviaCEP/)
